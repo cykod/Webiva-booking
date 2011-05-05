@@ -21,6 +21,9 @@ class Booking::PageRenderer < ParagraphRenderer
       @request = BookingRequest.find_by_id(params[:request][:id])
     end
 
+    require_js('prototype')
+    require_js('user_application')
+
     render_paragraph :partial => '/booking/page/view'
   end
 end

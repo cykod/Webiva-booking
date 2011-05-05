@@ -32,7 +32,7 @@ permit 'booking_config'
     cms_page_path ['Options','Modules'],"Booking Options"
 
     @options = self.class.module_options(params[:options])
-
+    @hours = (0..24).map{|h| [Time.parse('2010/01/01').since(h*60*60).strftime('%I:%M %p'),h.to_s]}
     if request.post? && @options.valid?
       Configuration.set_config_model(@options)
       flash[:notice] = "Updated Booking module options".t 
@@ -47,8 +47,10 @@ permit 'booking_config'
   end
 
   class Options < HashModel
-    attributes :default_booking_name => 'Booking name'
+    attributes :default_booking_name => 'Booking name',
+      :starting_hour => 8, :ending_hour => 17, :interval_minutes => 15
     validates_presence_of :default_booking_name
+    validates_numericality_of :starting_hour, :ending_hour, :interval_minutes
   end
 
 end

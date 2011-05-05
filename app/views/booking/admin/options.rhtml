@@ -1,6 +1,9 @@
 <div class='admin_content'>
 <% admin_form_for :options, @options do |f| -%>
   <%= f.text_field :default_booking_name %>
+  <%= f.select :starting_hour, @hours %>
+  <%= f.select :ending_hour, @hours %>
+  <%= f.select :interval_minutes, ["15","30","60"] %>
 <%= f.submit_tag 'Save' %>
 
 <%  end -%>

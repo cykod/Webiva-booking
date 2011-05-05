@@ -1,8 +1,9 @@
 <% if request -%>
-  <% cms_unstyled_form_for :request, response, :url => '' do |f| -%>
-    <%= f.text_field :response, poll.answer_options -%>
-    <%= f.radio_buttons :response, poll.answer_options, :separator => "<br/>" -%>
-    <br/>
+  <% cms_form_for :request, request, :url => '' do |f| -%>
+    <%= f.text_field :name -%>
+    <%= f.text_field :phone -%>
+    <%= f.date_field :request_date -%>
+    <%= f.select :request_minutes, BookingRequest.time_select, :include_blank=>true, :label=>'Time'  -%>
     <%= f.submit_tag 'Submit' -%>
   <% end -%>
 <% end -%>

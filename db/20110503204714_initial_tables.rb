@@ -7,7 +7,7 @@ class InitialTables < ActiveRecord::Migration
       t.integer :adult_count, :default => 0
       t.integer :child_count, :default => 0
       t.date  :request_date
-      t.time  :request_time
+      t.integer :request_minutes
       t.text :comments
       t.timestamps
     end
