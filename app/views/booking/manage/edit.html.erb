@@ -1,0 +1,11 @@
+<div class='admin_content'>
+  <% admin_form_for :request, @request do |f| -%>
+    <%= f.text_field :name, :required => true %>
+    <%= f.text_field :phone, :required => true %>
+    <%= f.date_select :request_date, :required => true %>
+    <%= f.time_select :request_time, :required => true %>
+    <%= f.text_field :adult_count %>
+    <%= f.text_field :child_count %>
+    <%= f.cancel_submit_buttons 'Cancel','Submit' %>
+  <% end -%>
+</div>

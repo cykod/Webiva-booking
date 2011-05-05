@@ -1,0 +1,9 @@
+<% action_panel do |p| -%>
+  <%= p.link "Create a new request", :action => 'edit', :icon => 'add.gif' -%>
+<% end -%>
+  
+<hr/>
+  
+<div class='admin_content'>
+ <%= active_table_render :request_table -%>
+</div>

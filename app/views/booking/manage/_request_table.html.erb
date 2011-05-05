@@ -1,0 +1,12 @@
+<% active_table_for :request_table, @tbl,
+    :actions => [['Delete','delete','Delete the selected request?']] do |t| -%>  <% active_tr 'request',t.id do |tr| -%>
+    <td><%= tr.checkbox -%></td>
+    <td><%= link_to h(t.name), :action => 'edit',:path => [ t.id ] -%></td>
+    <td><%= h(t.phone) -%></td>
+    <td><%= t.request_date.to_s(:short) -%></td>
+    <td><%= t.request_time.to_s(:short) -%></td>
+    <td><%= t.adult_count -%></td>
+    <td><%= t.child_count -%></td>
+    <td><%= t.created_at.to_s(:short) -%></td>
+  <% end -%>
+<% end -%>

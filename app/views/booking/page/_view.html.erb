@@ -1,0 +1,8 @@
+<% if request -%>
+  <% cms_unstyled_form_for :request, response, :url => '' do |f| -%>
+    <%= f.text_field :response, poll.answer_options -%>
+    <%= f.radio_buttons :response, poll.answer_options, :separator => "<br/>" -%>
+    <br/>
+    <%= f.submit_tag 'Submit' -%>
+  <% end -%>
+<% end -%>
